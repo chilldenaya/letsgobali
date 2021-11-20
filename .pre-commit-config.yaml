@@ -1,0 +1,33 @@
+default_language_version:
+  python: python3.7
+files: ".py"
+fail_fast: true
+repos:
+  - repo: https://github.com/timothycrosley/isort
+    rev: 5.4.2
+    hooks:
+      - id: isort
+        name: Auto-sorting imports with isort
+  - repo: https://github.com/pre-commit/mirrors-autopep8
+    rev: v1.5.4
+    hooks:
+      - id: autopep8
+        name: Complying to PEP8 with autopep8
+        args: [-i, --ignore=E203, --max-line-length=120]
+  - repo: https://github.com/psf/black
+    rev: 20.8b1
+    hooks:
+      - id: black
+        name: Auto Black-formatter
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+        name: Fixing trailing whitespace
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.8.3
+    hooks:
+      - id: flake8
+        name: flake8 code checker
+        args: [--max-line-length=120]
